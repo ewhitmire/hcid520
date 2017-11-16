@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		
+		<link rel="stylesheet" href="style.css" />
+		
+		<title>Homework 3 - Modeling interactions</title>
+		
+	</head>
+	<body>
+		
+		<h1>Homework 3 - Modeling interactions</h1>
+		<div class="lead">Andrew J. Ko</div>
+
+		<p>In <a href="homework1.html">homework 1</a>, you learned to do a literature review, and in <a href="homework2.html">homework 2</a>, you learned to extract the generalizable <em>knowledge</em> in research papers. This generalizable, abstract knowledge can be powerful, because it can help you generate other ideas, or manifest an idea in a new way.</p>
+		
+		<p>While a high-level understanding of an idea can be useful, there is some insight about ideas that can only come from a detailed, low-level understanding of <em>exactly</em> how an interface works. For example, this level of detail can help you get a precise understanding of a system's <em>limitations</em>, suggesting for whom and in what contexts an idea will not work. A low-level understanding of an interface can also help you elicit <em>uncertainties</em> in an idea, which might have to be addressed before an idea would actually work in practice. This low-level understanding consists of a subset of the details we've talked about in our <a href="theory.html">theory of user interfaces</a>: a system's <em>functional affordances</em> and it's <em>feedback</em>.</p>
+		
+		<p>Let's consider Apple's FaceID implementation in the iPhone X, and in particular, it's use on the lock screen to unlock the phone. As a user interface, what are it's <em>functional affordances</em> and <em>feedback</em>? We can look at <a href="https://images.apple.com/business/docs/FaceID_Security_Guide.pdf">Apple's FaceID Security guide</a> for low-level details on it's implementation. First, we learn that on the lock screen FaceID is a <em>passive</em> input device: it's continuously scanning. Second, it uses several input streams to do this scanning:</p>
+		
+		<ul>
+			<li>It uses a proximity sensor to detect when a surface is within a certain distance of the sensor array. Proximity sensors can work in many different ways; Apple's works by shining infrared light, waiting for it to bounce off a surface, and then measures the intensity of the reflected light. If Apple's proximity sensor detects a surface within a certain threshold distance, it then...</li>
+			<li>...uses a depth camera to build a 3D geometry of the objects in the depth camera's field of view. A depth camera shines infrared light in a field in the same way a proximity sensor does, but at a very high resolution. This allows the precise construction of a geometry. It then uses a neural network classifier build to recognize human faces to decide whether the geometry is a face or not. The classifier was trained on "over a billion images, including IR and depth images collected in studies conducted with the participants’ informed consent...with participants from around the world to include a representative group of people accounting for gender, age, ethnicity,... with hats, scarves, glasses, contact lenses, and many sunglasses.</li>
+			<li>If the geometry is a face, it then uses a camera sensor to take a series of pictures, using another neural network classifier to determine whether your eyes are looking at the phone.</li>
+			<li>If the detected face is looking at the phone, then the software uses a proprietary technique to compare the scanned face geometry with the geometry previously captured of the owner's face. While this occurs, a FaceID animation is shown, giving feedback that the face is being compared.</li>
+			<li>If it matches, then the authentication succeeds, and the lock icon on the screen animates to an unlocked state. If the face doesn't match, then authentication fails and the lock icon shakes. If a face has failed to match five times within a certain period of time, the phone requires for a passcode for authentication before it will unlock again.</li>
+		</ul>
+		
+		<p>This level of detail exposes a number of limitations and uncertainties. For example, if infrared light doesn't bounce off of a face, neither the proximity or depth camera sensors will work. Glass, plexiglas, wood, brick, stone, asphalt and paper all absorb infrared, so if someone was wearing a mask made out of these, FaceID wouldn't even detect a face, even if it looked like a face. Moreover, if you're sitting in a field full of other infrared radiation (for example, sitting next to another iPhone X user), these fields would interfere. And what about the face-detection classifiers? They should work well for whatever data was included in the training set, but not for data that wasn't. Whose faces weren't included? And what about gaze-detection for people with artificial eyes, or people without eyes? Finally, this whole process only supports one face, so people who share phones will have to decide who gets to use FaceID and who has to use a password. None of these limitations and uncertainties are clear until you really get into the details of exactly how FaceID works.</p> 
+
+		<h2>The task</h2>
+
+		<p>I want you to practice doing the same analysis I did above. For one of the research contributions you summarized in <a href="homework2.html">homework 2</a> (or a different one if you're no longer interested in those):</p>
+		
+		<ol>
+			<li>Write a detailed description of exactly how the system works. It should contain enough explanation that someone unfamiliar with all of the techniques (e.g., a supervisor or colleague) can still understand how it works. Think of this writing as teaching. You want someone to understand the behavior of the user interface. </li>
+			<li>Use your description to generate a list of at least <strong>ten</strong> <em>limitations</em> or <em>uncertainties</em> for the technique. They could all be limitations or all be uncertainties; the distribution doesn't matter.</li>
+		</ol>
+		
+		<p>To achieve the above, you may need to become more expert in technologies you're unfamiliar with. For example, for the explanation above, I had to relearn how a range of sensors and machine learning technologies work. The more expertise you gain, the more limitations and uncertainties you'll be able to generate.</p>
+
+		<h2>Grading</h2>
+		
+		<p>This homework is worth 5 points:</p>
+		
+		<ul>
+			<li>You get 2 points for a coherent explanation of the user interface behavior that describes functional affordances and feedback in detail.</li>
+			<li>You'll get 0.3 points for each limitation or uncertainty grounded in your explanation. You won't get credit for ones that aren't tied to your explanation.</li>
+		</ul>
+
+	</body>
+	
+</html>
+
