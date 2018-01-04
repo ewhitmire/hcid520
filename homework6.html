@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		
+		<link rel="stylesheet" href="style.css" />
+		
+		<title>Homework 6 - Envisioning interaction</title>
+		
+	</head>
+	<body>
+		
+		<h1>Homework 6 - Envisioning interaction</h1>
+		<div class="lead">Andrew J. Ko</div>
+
+		<p>In <a href="homework5.html">homework 5</a>, you explored the expressiveness of an interface technology in the form of application ideas. In this last homework, I want you to partner with someone in class, spending the remaining three weeks taking <strong>one</strong> of those ideas and writing a brief ~2,500 word specification detailing how that <strong>how that experience would work</strong> with words and mockups. It's not important that your idea is novel with respect to all of the products and research that's ever been created (although it can be). Rather, the goal of this homework is to be sufficiently <em>unambiguous</em> about your design's behavior that an engineer could implement your design.</p>
+		
+		<p>Let's discuss an example. Remember that idea I mentioned for a rhythm game using the FaceID sensor that requires you to open and close your eyes and mouth on beat? The document you would write to unambiguously describe this design's behavior would include details such as:</p>
+		
+		<ul>
+			<li>The overall concept of the game</li>
+			<li>The visual and interaction design of the game, including high-fidelity mockups of screens portraying the flow through the game.</li>
+			<li>The content of the game, such as the levels, music, and other details</li>
+			<li>How the game would detect eyes and mouths being opened and closed, and what it would do with that detection to drive the game.</li>
+		</ul>
+
+		<p>Notice that some of the details above are <strong>design</strong> details, in that they specify what the game will do and why, whereas some of the details are <strong>engineering</strong> details, in that they specify <em>how</em> the game will do it. You must specify <strong>both</strong>. You must detail every non-trivial algorithm in the game by specifying:</p>
+		
+		<ul>
+			<li>What inputs that algorithm will take</li>
+			<li>What outputs the algorithm will produce</li>
+			<li>What algorithms will be used to compute those outputs from those inputs. Note that you don't have to <em>invent</em> those algorithms, but you may have to cite research papers that describe those algorithms in detail or APIs that encapsulate those algorithms.</li>
+		</ul>
+		
+		<p>You <em>don't</em> have to write code, but you may need to write pseudocode like the kind you may have seen in research papers. Your goal is to give an engineer some unambiguous guidance on the code they need to write, without requiring them to make design choices or invent new algorithms.</p>
+		
+		<p>Because you don't have a lot of time to design, keep your idea simple. Envision something that has a small design "footprint," with few screens and algorithms. That will help you focus your work on the technical requirements of the design, rather than describing a complete designed experience.</p>
+		
+		<p>Because you're working alone, find classmates that are working on similar technologies. Get feedback on your ideas, your technical descriptions, and writing from each other. If you're not sure about the technical requirements for your design, find an expert who can give you clarity.</p>
+		
+		<h2>The deliverable</h2>
+
+		<p>Individually submit a PDF on Canvas that satisfies the following constraints:</p>
+		
+		<ul>
+			<li>Provide sufficiently unambiguous detail that an engineer could build it without having to make design choices or invent new algorithms.</li>
+			<li>Use a Google Doc with the default fonts and paragraph styling. This will save you time on formatting.</li>
+			<li>Text should be in a single column.</li>
+			<li>Paragraph text should be left-aligned.</li>
+			<li>There should be no more than roughly 2,000 words. Google Docs will give you a word count meant to keep your writing concise. This is a rough guideline. I'm not going to penalize you if you go over, but the more you go over, the more fatigued and critical I'll get.</li>
+			<li>Number and caption any figures or tables you include and cite those figures and tables in the text.</li>
+		</ul>
+		
+		<p>I recognize these constraints are somewhat ambiguous. The benefit of this ambiguity is flexibility: it frees you to envision many possible designs. The TA and I can provide clarity on what's ambiguous.</li>
+		
+		<h2>Grading</h2>
+		
+		<p>This homework is worth a whopping 27 points. That's more than quarter of your grade! Your submission will start with full credit and lose points for the following flaws:</p>
+
+		<table class="table table-striped">
+			<tr><td>-0.5 points</td><td>AMBIGUITY</td><td>Ambiguous design or algorithmic detail.</td></tr>
+			<tr><td>-0.25 points</td><td>ORGANIZATION</td><td>Content that can't be understood without reading later parts of the document.</td></tr>
+			<tr><td>-0.25 points</td><td>TYPO</td><td>Spelling or grammar issues.</td></tr>
+			<tr><td>-0.25 points</td><td>LAYOUT</td><td>Cluttered document formatting.</td></tr>
+			<tr><td>-0.25 points</td><td>FORMAT</td><td>Violation of a formatting rule.</td></tr>
+		</table>
+		
+	</body>
+	
+</html>
+
