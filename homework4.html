@@ -47,32 +47,44 @@
 				<li>Imagine a user who hasn't yet unlocked their Apple Watch after putting it on. It's summer in Mumbai and the user is wearing a short t-shirt, and sweating mildly. It's quite bright outside, causing the user to squint a bit. They're jogging to work, late to a meeting, and they receive a notification, but they're watch is locked and they have to authenticate to read it.</li>
 				<li>Imagine a user sitting on their couch in their room temperature house, wearing some exercise gear, reading a print version of the morning paper before they go to the gym. They get a New York Times notification about a story they're interested in and want to read it on the watch.</li>
 			</ol>
-			<li>I then apply the limitations and uncertainties to the scenario:</li>
-			<ol>
-				<li>Puffy rain coat user</li>
-				<ul>
-					<li>The user's face would still reflect infrared light.</li>
-					<li>If the user also had an iPhone with FaceID, it might not work if both devices were projecting light on the face at the same time. It also wouldn't work if the FaceID sensors were covered by the puffy winter jacket.</li>
-					<li>The hood might obscure some of the user's face, preventing a face from being recognized.</li>
-					<li>The rain on the glasses might interfere with gaze-detection by warping the sensor's image of the pupils.</li>
-				</ul>
-				<li>Sweaty jogger</li>
-				<ul>
-					<li>The user's face would still reflect infrared light.</li>
-					<li>There shouldn't be any other interfering infrared light.</li>
-					<li>The jogging might cause the watch to rotate, preventing the face from being fully within the sensors' view, requiring the user to readjust the position of the watch and try again.</li>
-					<li>Because the user is jogging, they may not be able to gaze at the watch in a stable enough manner to allow gaze detection to work, and if the user tried to stabilize their gaze, they might run into something because they're not watching where they're running.</li>
-				</ul>
-				<li>Pre-workout news reading</li>
-				<ul>
-					<li>The user's face would still reflect infrared light.</li>
-					<li>There shouldn't be any other interfering infrared light.</li>
-					<li>Nothing is obstructing the user's face.</li>
-					<li>Nothing is preventing attention on the sensors.</li>
-				</ul>
-			</ol>
-			<li>Finally, based on the scenario analysis, I make a judgement about user experience. Is it worth investing in FaceID R&D for smartwatches? The scenario was an extreme weather and clothing environment and probably wouldn't work that well, especially because the sensor might be obscured. It might work better for the jogger (especially over typing in a passcode), but it imposes some safety risks. The news reader would likely have no problems. All users would probably only have to authenticate once a day, but given the intent of the Watch as providing timely information, the need for authentication could happen at inopportune times. I recommend that rather than investing in solving these edge cases (and having some unfortunate news stories about injured joggers), it might make more sense to invest in R&D for other wrist-based biometrics that could passively authenticate a user without their attention.</li>
-		</ul>
+		</ul>	
+		
+		<p>I then apply the limitations and uncertainties to the scenario. To do this, it's easiest to create a table with limitations in the rows and scenarios in the columns:</p>
+					
+		<table class="table table-striped">
+			<tr>
+				<th>Limitation</th>
+				<th>Puffy rain coat user</th>
+				<th>Sweaty jogger</th>
+				<th>Pre-workout news reading</th>
+			<tr>
+				<td>FaceID won't work for surfaces that don't reflect infrared light</td>
+				<td>The user's face would still reflect infrared light.</td>
+				<td>The user's face would still reflect infrared light.</td>
+				<td>The user's face would still reflect infrared light.</td>
+			</tr>
+			<tr>
+				<td>FaceID won't work in environments with rich fields of infrared light</td>
+				<td>If the user also had an iPhone with FaceID, it might not work if both devices were projecting light on the face at the same time. It also wouldn't work if the FaceID sensors were covered by the puffy winter jacket.</td>
+				<td>There shouldn't be any other interfering infrared light.</td>
+				<td>There shouldn't be any other interfering infrared light.</td>
+			</tr>
+			<tr>
+				<td>FaceID might not work for faces that don't look like faces in Apple's training set</td>
+				<td>The hood might obscure some of the user's face, preventing a face from being recognized.</td>
+				<td>The jogging might cause the watch to rotate, preventing the face from being fully within the sensors' view, requiring the user to readjust the position of the watch and try again.</td>
+				<td>Nothing is obstructing the user's face.</td>
+			</tr>
+			<tr>
+				<td>FaceID might not work for people without two eyes that can gaze at the camera sensor (unless the user turns off gaze-detection).</td>
+				<td>The rain on the glasses might interfere with gaze-detection by warping the sensor's image of the pupils.</td>
+				<td>Because the user is jogging, they may not be able to gaze at the watch in a stable enough manner to allow gaze detection to work, and if the user tried to stabilize their gaze, they might run into something because they're not watching where they're running.</td>
+				<td>Nothing is preventing attention on the sensors.</td>
+			</tr>
+			
+		</table>
+			
+		<p>Should Apple adopt FaceID for Apple Watch? I recommend that rather than investing in solving these edge cases (and having some unfortunate news stories about injured joggers), it might make more sense to invest in R&D for other wrist-based biometrics that could passively authenticate a user without any user attention at all.</p>
 
 		<p>Note that the result of this analysis isn't necessarily a yes or no (though it could have been, if the evidence was strong), but rather a recommendation or set of recommendations with rationale grounded in the analysis.</p>
 		
